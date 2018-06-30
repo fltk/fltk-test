@@ -2,7 +2,7 @@
 
 ## VERY IMPORTANT TECHNICAL NOTICE
 
-** This FLTK repository is work in progress. Use for testing purposes only. **
+**This FLTK repository is work in progress. Use for testing purposes only.**
 
   This repository will be replaced by another one in the near future.
 
@@ -31,6 +31,23 @@
 
   Committing to these Git repositories is not possible since they are
   mirrors of the original Subversion repository.
+  
+### This Test Repository (fltk-test)
+
+  This repository is **NOT** a mirror of our official Subversion repository.
+  It is a first try to convert the Subversion repository to a functional
+  Git repository.
+ 
+  FLTK developers are encouraged to use this for testing, committing
+  files, using the GitHub web interface, adding and deleting new feature
+  branches for testing, using merge requests (even rebasing "private"
+  feature branches) and whatever is needed to test Git usage for FLTK.
+ 
+  This repository will **NOT** be used for further development, no
+  changes in this repository will be back-ported **automatically**
+  to our official Subversion or later Git repositories. Developers
+  are responsible for committing *_real_* changes to the Subversion
+  repository as well.
 
 
 ## WHAT IS FLTK?
