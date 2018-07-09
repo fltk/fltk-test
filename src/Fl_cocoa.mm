@@ -105,8 +105,8 @@ static BOOL through_Fl_X_flush = NO;
 static int im_enabled = -1;
 // OS version-dependent pasteboard type names
 #if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_6
-#  define NSPasteboardTypeTIFF @"public.tiff"
-#  define NSPasteboardTypePDF @"com.adobe.pdf"
+#  define NSPasteboardTypeTIFF   @"public.tiff"
+#  define NSPasteboardTypePDF    @"com.adobe.pdf"
 #  define NSPasteboardTypeString @"public.utf8-plain-text"
 #endif
 static NSString *TIFF_pasteboard_type = (fl_mac_os_version >= 100600 ? NSPasteboardTypeTIFF : NSTIFFPboardType);
