@@ -115,7 +115,7 @@ static NSString *PICT_pasteboard_type = (fl_mac_os_version >= 100600 ? @"com.app
 static NSString *UTF8_pasteboard_type = (fl_mac_os_version >= 100600 ? NSPasteboardTypeString : NSStringPboardType);
 static bool in_nsapp_run = false; // true during execution of [NSApp run]
 static NSMutableArray *dropped_files_list = nil; // list of files dropped at app launch
-typedef void (*open_cb_f_type)(const char *);
+typedef void (*open_cb_f_type)(const char *); // used by class FLAppDelegate
 
 #if CONSOLIDATE_MOTION
 static Fl_Window* send_motion;
