@@ -45,12 +45,12 @@ if test "x$FLTK_TAR" != "x"; then
   TAR="$FLTK_TAR"
 fi
 
-# these are the release and snapshot download URL's currently in use:
+# These are the release and snapshot download URL's currently in use:
 
 DOWNLOAD='http://fltk.org/pub/fltk'
 SNAPSHOT='http://fltk.org/pub/fltk/snapshots'
 
-# VS = short version number ('major.minor', for instance '1.4')
+# VS = short version number ('major.minor'), for instance '1.4'.
 # Note: VS is used only for snapshot generation
 
 VS=`cat VERSION | sed -e's/\([0-9]*\.[0-9]*\).*/\1/'`
@@ -58,8 +58,7 @@ VS=`cat VERSION | sed -e's/\([0-9]*\.[0-9]*\).*/\1/'`
 echo "Getting distribution..."
 
 if test $# = 0 -o "x$1" = "xsnapshot"; then
-	echo Updating for snapshot...
-	git fetch origin
+	echo Getting snapshot revision...
 	rev=`git rev-parse --short=10 HEAD`
 	version="${VS}-git"
 	fileversion="${VS}.x-$rev"
@@ -156,7 +155,7 @@ rm -rf fltk-$version
 if test "x$2" = "xtag"; then
 	echo ""
 	echo "Don't forget to push the Git tag"
-	echo "(assuming 'origin' as your remote Git repository:"
+	echo "(assuming 'origin' as your remote Git repository):"
 	echo ""
 	echo "\$ git push origin release-$version"
 	echo ""
