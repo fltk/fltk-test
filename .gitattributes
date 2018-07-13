@@ -1,0 +1,5 @@
+#
+# Git attributes for some special files
+#
+
+makesrcdist	export-ignore
