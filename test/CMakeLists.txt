@@ -38,6 +38,7 @@ CREATE_EXAMPLE(boxtype boxtype.cxx fltk)
 CREATE_EXAMPLE(browser browser.cxx fltk)
 CREATE_EXAMPLE(button button.cxx fltk)
 CREATE_EXAMPLE(buttons buttons.cxx fltk)
+CREATE_EXAMPLE(check_browser check_browser.cxx fltk)
 
 set(CHECKERS_ICON "${CMAKE_CURRENT_SOURCE_DIR}/checkers.app/Contents/Resources/checkers.icns")
 CREATE_EXAMPLE(checkers "checkers.cxx;${CHECKERS_ICON}" fltk)

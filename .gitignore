@@ -182,6 +182,7 @@
 /test/button
 /test/buttons
 /test/cairo_test
+/test/check_browser
 /test/checkers
 /test/clock
 /test/colbrowser

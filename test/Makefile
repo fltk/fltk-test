@@ -31,6 +31,7 @@ CPPFILES =\
 	button.cxx \
 	buttons.cxx \
 	cairo_test.cxx \
+	check_browser.cxx \
 	checkers.cxx \
 	clock.cxx \
 	colbrowser.cxx \
@@ -111,6 +112,7 @@ ALL =	\
 	button$(EXEEXT) \
 	buttons$(EXEEXT) \
 	cairo_test$(EXEEXT) \
+	check_browser$(EXEEXT) \
 	checkers$(EXEEXT) \
 	clock$(EXEEXT) \
 	colbrowser$(EXEEXT) \
