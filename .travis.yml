@@ -1,18 +1,18 @@
 os:
-- linux
-- osx
+  - linux
+  - osx
 
 language:
-- c++
-- objective-c
+  - c++
+  - objective-c
 
 before_install:
-- echo "os = $TRAVIS_OS_NAME"
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -q && sudo apt-get install -y doxygen libxinerama-dev libxcursor-dev libasound2-dev; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then brew install doxygen; fi
+  - echo "os = $TRAVIS_OS_NAME"
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -q && sudo apt-get install -y doxygen libxinerama-dev libxcursor-dev libasound2-dev; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew install doxygen; fi
 
 script:
-- echo "Building for OS '$TRAVIS_OS_NAME'"
-- make clean && make -j3
-- doxygen --version
-- (cd documentation; make html)
+  - echo "Building for OS '$TRAVIS_OS_NAME'"
+  - make clean && make -j3
+  - doxygen --version
+  - if [ $TRAVIS_OS_NAME == linux ]; then cd documentation; make html; cd -; fi
