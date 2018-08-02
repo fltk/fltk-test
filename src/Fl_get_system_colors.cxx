@@ -150,6 +150,8 @@ static Fl_Pixmap	tile(tile_xpm);
         - "gleam" - This scheme is inspired by the Clearlooks Glossy scheme.
                     (Colin Jones and Edmanuel Torres).
 
+        - "oxy" - Subset of Dmitrij K's oxy scheme added by Laura Michaels
+
     Uppercase scheme names are equivalent, but the stored scheme name will
     always be lowercase and Fl::scheme() will return this lowercase name.
 
@@ -168,6 +170,7 @@ int Fl::scheme(const char *s) {
     else if (!fl_ascii_strcasecmp(s, "gtk+")) s = strdup("gtk+");
     else if (!fl_ascii_strcasecmp(s, "plastic")) s = strdup("plastic");
     else if (!fl_ascii_strcasecmp(s, "gleam")) s = strdup("gleam");
+    else if (!fl_ascii_strcasecmp(s, "oxy")) s = strdup("oxy");
     else s = 0;
   }
   if (scheme_) free((void*)scheme_);
@@ -188,7 +191,7 @@ int Fl::scheme(const char *s) {
 int Fl::reload_scheme() {
   Fl_Window *win;
 
-  if (scheme_ && !fl_ascii_strcasecmp(scheme_, "plastic")) {
+  if (Fl::is_scheme("plastic")) {
     // Update the tile image to match the background color...
     uchar r, g, b;
     int nr, ng, nb;
@@ -234,7 +237,7 @@ int Fl::reload_scheme() {
 
     // Use standard size scrollbars...
     Fl::scrollbar_size(16);
-  } else if (scheme_ && !fl_ascii_strcasecmp(scheme_, "gtk+")) {
+  } else if (Fl::is_scheme("gtk+")) {
     // Use a GTK+ inspired look-n-feel...
     if (scheme_bg_) {
       delete scheme_bg_;
@@ -255,7 +258,7 @@ int Fl::reload_scheme() {
 
     // Use slightly thinner scrollbars...
     Fl::scrollbar_size(15);
-  } else if (scheme_ && !fl_ascii_strcasecmp(scheme_, "gleam")) {
+  } else if (Fl::is_scheme("gleam")) {
     // Use a GTK+ inspired look-n-feel...
     if (scheme_bg_) {
       delete scheme_bg_;
@@ -273,6 +276,27 @@ int Fl::reload_scheme() {
     set_boxtype(FL_THIN_DOWN_BOX,   FL_GLEAM_THIN_DOWN_BOX);
     set_boxtype(_FL_ROUND_UP_BOX,   FL_GLEAM_ROUND_UP_BOX);
     set_boxtype(_FL_ROUND_DOWN_BOX, FL_GLEAM_ROUND_DOWN_BOX);
+
+    // Use slightly thinner scrollbars...
+    Fl::scrollbar_size(15);
+  } else if (Fl::is_scheme("oxy")) {
+    // Oxy scheme
+    if (scheme_bg_) {
+      delete scheme_bg_;
+      scheme_bg_ = (Fl_Image *)0;
+    }
+
+    set_boxtype(FL_UP_FRAME,        FL_OXY_UP_FRAME);
+    set_boxtype(FL_DOWN_FRAME,      FL_OXY_DOWN_FRAME);
+    set_boxtype(FL_THIN_UP_FRAME,   FL_OXY_THIN_UP_FRAME);
+    set_boxtype(FL_THIN_DOWN_FRAME, FL_OXY_THIN_DOWN_FRAME);
+
+    set_boxtype(FL_UP_BOX,          FL_OXY_UP_BOX);
+    set_boxtype(FL_DOWN_BOX,        FL_OXY_DOWN_BOX);
+    set_boxtype(FL_THIN_UP_BOX,     FL_OXY_THIN_UP_BOX);
+    set_boxtype(FL_THIN_DOWN_BOX,   FL_OXY_THIN_DOWN_BOX);
+    set_boxtype(_FL_ROUND_UP_BOX,   FL_OXY_ROUND_UP_BOX);
+    set_boxtype(_FL_ROUND_DOWN_BOX, FL_OXY_ROUND_DOWN_BOX);
 
     // Use slightly thinner scrollbars...
     Fl::scrollbar_size(15);

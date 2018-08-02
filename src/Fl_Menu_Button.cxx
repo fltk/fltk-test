@@ -3,7 +3,7 @@
 //
 // Menu button widget for the Fast Light Tool Kit (FLTK).
 //
-// Copyright 1998-2010 by Bill Spitzak and others.
+// Copyright 1998-2018 by Bill Spitzak and others.
 //
 // This library is free software. Distribution and use rights are outlined in
 // the file "COPYING" which should have been included with this file.  If this
@@ -33,10 +33,15 @@ void Fl_Menu_Button::draw() {
   draw_label(x()+Fl::box_dx(box()), y(), X-x()+2, h());
   if (Fl::focus() == this) draw_focus();
   // ** if (box() == FL_FLAT_BOX) return; // for XForms compatibility
-  fl_color(active_r() ? FL_DARK3 : fl_inactive(FL_DARK3));
-  fl_line(X+H/2, Y+H, X, Y, X+H, Y);
-  fl_color(active_r() ? FL_LIGHT3 : fl_inactive(FL_LIGHT3));
-  fl_line(X+H, Y, X+H/2, Y+H);
+  if (Fl::is_scheme("oxy")) {
+    Fl_Rect bb(X, y()+1, h()-2, h()-2);
+    fl_draw_arrow(bb, FL_ARROW_CHOICE, FL_ORIENT_NONE, active_r(), color(), FL_BLACK);
+  } else {
+    fl_color(active_r() ? FL_DARK3 : fl_inactive(FL_DARK3));
+    fl_line(X+H/2, Y+H, X, Y, X+H, Y);
+    fl_color(active_r() ? FL_LIGHT3 : fl_inactive(FL_LIGHT3));
+    fl_line(X+H, Y, X+H/2, Y+H);
+  }
 }
 
 
@@ -102,7 +107,7 @@ int Fl_Menu_Button::handle(int e) {
 /**
   Creates a new Fl_Menu_Button widget using the given position,
   size, and label string. The default boxtype is FL_UP_BOX.
-  <P>The constructor sets menu() to NULL.  See 
+  <P>The constructor sets menu() to NULL.  See
   Fl_Menu_ for the methods to set or change the menu.
 */
 Fl_Menu_Button::Fl_Menu_Button(int X,int Y,int W,int H,const char *l)

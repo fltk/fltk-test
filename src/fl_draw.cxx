@@ -31,6 +31,7 @@
 #include "flstring.h"
 #include <ctype.h>
 #include <math.h>
+#include "fl_oxy.h"
 
 
 char fl_draw_shortcut;	// set by fl_labeltypes.cxx
@@ -442,6 +443,18 @@ int fl_height(int font, int size) {
     int height = fl_height();
     fl_font(tf,ts);                       // restore
     return(height);
+}
+
+void fl_draw_arrow(Fl_Rect bb, Fl_Arrow_Type t, Fl_Orientation o,
+		   bool ac, Fl_Color c, Fl_Color hc) {
+#define DEBUG_ARROW (0)
+#if (DEBUG_ARROW)
+  fl_color(fl_lighter(FL_RED));
+  fl_rect(bb.x()+2, bb.y()+2, bb.w()-4, bb.h()-4);
+#endif
+  if (Fl::is_scheme("oxy")) {
+    oxy_arrow(bb, t, o, ac, c, hc);
+  }
 }
 
 //

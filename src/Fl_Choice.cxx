@@ -57,6 +57,18 @@ void Fl_Choice::draw() {
       // Show larger up/down arrows...
       fl_polygon(x1, y1 + 3, x1 + w1, y1 + w1 + 3, x1 + 2 * w1, y1 + 3);
       fl_polygon(x1, y1 + 1, x1 + w1, y1 - w1 + 1, x1 + 2 * w1, y1 + 1);
+    } else if (Fl::is_scheme("oxy")) {
+      // Show "oxy" arrows with a divider...
+      Fl_Rect bb(X, Y, W, H);
+      // draw down arrow
+      fl_draw_arrow(bb, FL_ARROW_CHOICE, FL_ORIENT_DOWN, active_r(), color(), FL_BLACK);
+      // draw the divider
+      Fl_Color hlcol = fl_color_average(color(), FL_BLACK, 0.88);
+      fl_color(active_r()?hlcol:fl_inactive(hlcol));
+      fl_yxline(X, y()+dy, y()+h()-dx-2);
+      hlcol = fl_lighter(color());
+      fl_color(active_r()?hlcol:fl_inactive(hlcol));
+      fl_yxline(X+1, y()+dy, y()+h()-dx-2);
     } else {
       // Show smaller up/down arrows with a divider...
       x1 = x() + w() - 13 - dx;

@@ -472,7 +472,16 @@ void menuwindow::drawentry(const Fl_Menu_Item* m, int n, int eraseit) {
     int sz = (hh-7)&-2;
     int y1 = yy+(hh-sz)/2;
     int x1 = xx+ww-sz-3;
-    fl_polygon(x1+2, y1, x1+2, y1+sz, x1+sz/2+2, y1+sz/2);
+    // draw arrows for the oxy theme
+    if (Fl::is_scheme("oxy")) {
+      x1 += (sz/2-BW*2-1);
+      y1 = yy+hh/2-4; // 4 is half of arrow height
+      Fl_Rect bb = Fl_Rect(xx + ww - hh, yy, hh, hh);
+      fl_draw_arrow(bb, FL_ARROW_SINGLE, FL_ORIENT_RIGHT,
+		    active_r(), color(), (n==selected) ? selection_color() : FL_BLACK);
+    } else {
+      fl_polygon(x1+2, y1, x1+2, y1+sz, x1+sz/2+2, y1+sz/2);
+    }
   } else if (m->shortcut_) {
     Fl_Font f = m->labelsize_ || m->labelfont_ ? (Fl_Font)m->labelfont_ :
                     button ? button->textfont() : FL_HELVETICA;
