@@ -37,7 +37,7 @@
   key as defined by the operating system.
   <P>
   <TABLE WIDTH=90% BORDER=1 SUMMARY="Fl_Input keyboard and mouse bindings.">
-    <CAPTION ALIGN=TOP>Fl_Input keyboard and mouse bindings.</CAPTION>
+    <!-- CAPTION ALIGN=TOP>Fl_Input keyboard and mouse bindings.</CAPTION -->
     <TR><TD NOWRAP="NOWRAP" WIDTH="1%">
       <B>Mouse button 1</B> 
     </TD><TD>
@@ -75,7 +75,7 @@
   <P>
 
   <TABLE WIDTH="90%" BORDER="1" SUMMARY="Fl_Input platform specific keyboard bindings.">
-    <CAPTION ALIGN=TOP>Fl_Input platform specific keyboard bindings.</CAPTION>
+    <!-- CAPTION ALIGN=TOP>Fl_Input platform specific keyboard bindings.</CAPTION -->
   <TR>
     <TD NOWRAP="NOWRAP" WIDTH="1%"><B> Windows/Linux </B></TD>
     <TD NOWRAP="NOWRAP" WIDTH="1%"><B> Mac </B></TD>
