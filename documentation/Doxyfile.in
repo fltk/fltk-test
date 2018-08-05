@@ -619,6 +619,14 @@ EXCLUDE += @FLTK_SOURCE_DIR@/src/fl_font_win32.cxx
 EXCLUDE += @FLTK_SOURCE_DIR@/src/Fl_get_key_mac.cxx
 EXCLUDE += @FLTK_SOURCE_DIR@/src/Fl_get_key_win32.cxx
 
+# *FIXME* These source files break doxygen (> 1.8.6) PDF generation :-(
+# *FIXME* This is work in progress and must be fixed!
+
+EXCLUDE += @FLTK_SOURCE_DIR@/src/Fl_Input.cxx
+EXCLUDE += @FLTK_SOURCE_DIR@/FL/Fl_Input.H
+EXCLUDE += @FLTK_SOURCE_DIR@/src/Fl_Tree.cxx
+EXCLUDE += @FLTK_SOURCE_DIR@/FL/Fl_Tree.H
+
 # The EXCLUDE_SYMLINKS tag can be used select whether or not files or
 # directories that are symbolic links (a Unix filesystem feature) are excluded
 # from the input.
