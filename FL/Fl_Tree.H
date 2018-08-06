@@ -241,7 +241,8 @@
 ///     The following table lists keyboard bindings for navigating the tree:
 ///
 ///  <TABLE BORDER="1" SUMMARY="Fl_Tree keyboard bindings.">
-///    <!-- CAPTION ALIGN=TOP>Fl_Tree keyboard bindings.</CAPTION -->
+///    <!-- DON'T use the class name in the caption, or doxygen 1.8.x will fail. -->
+///    <CAPTION ALIGN="TOP">Keyboard bindings.</CAPTION>
 ///  <TR>
 ///    <TD WIDTH=25% ALIGN=CENTER><B>Keyboard</B></TD>
 ///    <TD WIDTH=25% ALIGN=CENTER><B>FL_TREE_SELECT_MULTI</B></TD>
