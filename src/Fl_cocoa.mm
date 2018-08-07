@@ -105,9 +105,9 @@ static BOOL through_Fl_X_flush = NO;
 static int im_enabled = -1;
 // OS version-dependent pasteboard type names
 #if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_6
-#define NSPasteboardTypeTIFF @"public.tiff"
-#define NSPasteboardTypePDF @"com.adobe.pdf"
-#define NSPasteboardTypeString @"public.utf8-plain-text"
+#  define NSPasteboardTypeTIFF   @"public.tiff"
+#  define NSPasteboardTypePDF    @"com.adobe.pdf"
+#  define NSPasteboardTypeString @"public.utf8-plain-text"
 #endif
 static NSString *TIFF_pasteboard_type = (fl_mac_os_version >= 100600 ? NSPasteboardTypeTIFF : NSTIFFPboardType);
 static NSString *PDF_pasteboard_type = (fl_mac_os_version >= 100600 ? NSPasteboardTypePDF : NSPDFPboardType);
@@ -115,7 +115,7 @@ static NSString *PICT_pasteboard_type = (fl_mac_os_version >= 100600 ? @"com.app
 static NSString *UTF8_pasteboard_type = (fl_mac_os_version >= 100600 ? NSPasteboardTypeString : NSStringPboardType);
 static bool in_nsapp_run = false; // true during execution of [NSApp run]
 static NSMutableArray *dropped_files_list = nil; // list of files dropped at app launch
-typedef void (*open_cb_f_type)(const char *);
+typedef void (*open_cb_f_type)(const char *); // used by class FLAppDelegate
 
 #if CONSOLIDATE_MOTION
 static Fl_Window* send_motion;
