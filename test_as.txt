@@ -1,2 +1,4 @@
 This is a test.
 Edited by AlbrechtS.
+
+Just a change to be committed. ...
