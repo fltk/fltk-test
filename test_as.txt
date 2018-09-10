@@ -1,4 +1,5 @@
 This is a test.
 Edited by AlbrechtS.
 
-Just a change to be committed. ...
+Just a change to be committed.
+Just another change being committed.
