@@ -24,8 +24,9 @@
 #ifndef fl_draw_H
 #define fl_draw_H
 
-#include <FL/Enumerations.H>  // for the color names
-#include <FL/Fl_Graphics_Driver.H>     // for fl_graphics_driver + Fl_Region
+#include <FL/Enumerations.H>        // for the color names
+#include <FL/Fl_Graphics_Driver.H>  // for fl_graphics_driver + Fl_Region
+#include <FL/Fl_Rect.H>
 
 // Image class...
 class Fl_Image;
@@ -695,6 +696,10 @@ FL_EXPORT void fl_draw(const char* str, int x, int y, int w, int h,
 FL_EXPORT void fl_frame(const char* s, int x, int y, int w, int h);
 FL_EXPORT void fl_frame2(const char* s, int x, int y, int w, int h);
 FL_EXPORT void fl_draw_box(Fl_Boxtype, int x, int y, int w, int h, Fl_Color);
+
+// arrows:
+FL_EXPORT void fl_draw_arrow(Fl_Rect bb, Fl_Arrow_Type t, Fl_Orientation o,
+			     bool ac, Fl_Color c, Fl_Color hc);
 
 // images:
 

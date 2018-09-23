@@ -204,7 +204,10 @@ void Fl_Scrollbar::draw() {
   int W = w()-Fl::box_dw(box());
   int H = h()-Fl::box_dh(box());
   if (horizontal()) {
-    if (W < 3*H) {Fl_Slider::draw(X,Y,W,H); return;}
+    if (W < 3*H) {
+      Fl_Slider::draw(X,Y,W,H);
+      return;
+    }
     Fl_Slider::draw(X+H,Y,W-2*H,H);
     if (damage()&FL_DAMAGE_ALL) {
       draw_box((pushed_==1) ? fl_down(slider()) : slider(),
@@ -222,6 +225,13 @@ void Fl_Scrollbar::draw() {
 	fl_polygon(x1, yy1+w1, x1+w1, yy1+2*w1, x1+w1-1, yy1+w1, x1+w1, yy1);
 	x1 += (W-H);
 	fl_polygon(x1, yy1, x1+1, yy1+w1, x1, yy1+2*w1, x1+w1, yy1+w1);
+      } else if (Fl::is_scheme("oxy")) {
+	Fl_Rect bb(X, Y, H, H);
+	fl_draw_arrow(bb, FL_ARROW_SINGLE, FL_ORIENT_LEFT, // left arrow
+		      active_r(), color(), FL_BLACK);
+	bb.x(X+W-H);
+	fl_draw_arrow(bb, FL_ARROW_SINGLE, FL_ORIENT_RIGHT, // right arrow
+		      active_r(), color(), FL_BLACK);
       } else {
 	fl_polygon(x1, yy1+w1, x1+w1, yy1+2*w1, x1+w1, yy1);
 	x1 += (W-H);
@@ -229,7 +239,10 @@ void Fl_Scrollbar::draw() {
       }
     }
   } else { // vertical
-    if (H < 3*W) {Fl_Slider::draw(X,Y,W,H); return;}
+    if (H < 3*W) {
+      Fl_Slider::draw(X,Y,W,H);
+      return;
+    }
     Fl_Slider::draw(X,Y+W,W,H-2*W);
     if (damage()&FL_DAMAGE_ALL) {
       draw_box((pushed_==1) ? fl_down(slider()) : slider(),
@@ -248,6 +261,13 @@ void Fl_Scrollbar::draw() {
 	yy1 += H-W;
 	fl_polygon(x1, yy1, x1+w1, yy1+1, x1+w1, yy1+w1);
 	fl_polygon(x1+w1, yy1+1, x1+2*w1, yy1, x1+w1, yy1+w1);
+      } else if (Fl::is_scheme("oxy")) {
+	Fl_Rect bb(X, Y, W, W);
+	fl_draw_arrow(bb, FL_ARROW_SINGLE, FL_ORIENT_UP, // up arrow
+		      active_r(), color(), FL_BLACK);
+	bb.y(Y+H-W);
+	fl_draw_arrow(bb, FL_ARROW_SINGLE, FL_ORIENT_DOWN, // down arrow
+		      active_r(), color(), FL_BLACK);
       } else {
 	fl_polygon(x1, yy1+w1, x1+2*w1, yy1+w1, x1+w1, yy1);
 	yy1 += H-W;

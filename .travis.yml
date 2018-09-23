@@ -1,31 +1,18 @@
-language: c++
+os:
+  - linux
+  - osx
+
+language:
+  - c++
+  - objective-c
+
+before_install:
+  - echo "os = $TRAVIS_OS_NAME"
+  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -q && sudo apt-get install -y doxygen libxinerama-dev libxcursor-dev libasound2-dev; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then brew install doxygen; fi
 
 script:
-- make clean
-- make -j3
-
-language: android
-android:
-  components:
-    - tools
-    - tools
-    - platform-tools
-    - build-tools-27.0.3
-    - android-27
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-install:
-  - echo y | sdkmanager "ndk-bundle"
-  - echo y | sdkmanager "cmake;3.6.4111459"
-  - echo y | sdkmanager "lldb;3.1"
-    #  - sdkmanager --update
-before_script:
-  - export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
-script:
-  - cd ide/AndroidStudio3
-  - ./gradlew app:assembleDebug
+  - echo "Building for OS '$TRAVIS_OS_NAME'"
+  - make clean && make -j3
+  - doxygen --version
+  - if [ $TRAVIS_OS_NAME == linux ]; then cd documentation; make html; cd -; fi

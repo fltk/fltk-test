@@ -66,15 +66,34 @@ void Fl_Counter::draw() {
 
   if (type() == FL_NORMAL_COUNTER) {
     draw_box(boxtype[1], xx[1], y(), ww[1], h(), color());
-    fl_draw_symbol("@-4<<", xx[1], y(), ww[1], h(), selcolor);
+    if (Fl::is_scheme("oxy"))
+      fl_draw_arrow(Fl_Rect(xx[1],y(),ww[1],h()), FL_ARROW_DOUBLE, FL_ORIENT_LEFT,
+		    active_r(), color(), selcolor);
+    else
+      fl_draw_symbol("@-4<<", xx[1], y(), ww[1], h(), selcolor);
   }
+
   draw_box(boxtype[2], xx[2], y(), ww[2], h(), color());
-  fl_draw_symbol("@-4<",  xx[2], y(), ww[2], h(), selcolor);
+  if (Fl::is_scheme("oxy"))
+    fl_draw_arrow(Fl_Rect(xx[2],y(),ww[2],h()), FL_ARROW_SINGLE, FL_ORIENT_LEFT,
+		  active_r(), color(), selcolor);
+  else
+    fl_draw_symbol("@-4<",  xx[2], y(), ww[2], h(), selcolor);
+
   draw_box(boxtype[3], xx[3], y(), ww[3], h(), color());
-  fl_draw_symbol("@-4>",  xx[3], y(), ww[3], h(), selcolor);
+  if (Fl::is_scheme("oxy"))
+    fl_draw_arrow(Fl_Rect(xx[3],y(),ww[3],h()), FL_ARROW_SINGLE, FL_ORIENT_RIGHT,
+		  active_r(), color(), selcolor);
+  else
+    fl_draw_symbol("@-4>",  xx[3], y(), ww[3], h(), selcolor);
+
   if (type() == FL_NORMAL_COUNTER) {
     draw_box(boxtype[4], xx[4], y(), ww[4], h(), color());
-    fl_draw_symbol("@-4>>", xx[4], y(), ww[4], h(), selcolor);
+    if (Fl::is_scheme("oxy"))
+      fl_draw_arrow(Fl_Rect(xx[4],y(),ww[4],h()), FL_ARROW_DOUBLE, FL_ORIENT_RIGHT,
+		    active_r(), color(), selcolor);
+    else
+      fl_draw_symbol("@-4>>", xx[4], y(), ww[4], h(), selcolor);
   }
 }
 
