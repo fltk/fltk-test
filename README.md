@@ -1,29 +1,30 @@
 # README - Fast Light Tool Kit (FLTK) Version 1.4.0
 
-## VERY IMPORTANT TECHNICAL NOTICE
+## VERY IMPORTANT TECHNICAL NOTICE !
 
-**This FLTK repository is work in progress. Use for testing purposes only.**
+**This FLTK repository is no longer supported. Use for testing purposes only.**
 
-  This repository will be replaced by another one in the near future.
+  This repository has been replaced by the "real" FLTK Git Repository:
+  
+  https://github.com/fltk/fltk
 
   Technically this means:
 
-  * all `Git hashes (SHA1's)` used in this repository will be invalid
-    once this repository got replaced
+  * this repository is not longer updated by our mirror script
   * we don't accept pull requests for this repository
 
 
 ### Technical background
 
-  Our main source code repository is currently (as of Jun 19, 2018) our
+  Our main source code repository is currently (as of Sep 22, 2018) our
   subversion repository at http://www.fltk.org/software.php#SVN .
 
   We are in the transition to convert the subversion repository to Git.
-  Until this is done we have established Git mirrors of our Subversion
-  repository at these two sites:
+  This has been done now, but we're still committing to svn and using
+  a mirror script to push commits to our new Git repository:
 
-  * https://github.com/fltk/test-only
-  * https://gitlab.com/fltk/fltk
+  * https://github.com/fltk/fltk
+  * https://gitlab.com/fltk/fltk (this test is stale now)
 
   You may use these Git repositories for testing purposes, but please
   don't rely on their structure (branches) and particularly not on the
